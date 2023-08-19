@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+:root {
+    --color-primary: #1976d2;
+    --tab-width: 500px;
+    --button-width: 64px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Ubuntu';
+    line-height: 1.5;
+    background: #24262a;
+    color: white;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;    
+    margin-inline: 200px;
+}
+
+.content {
+    text-align: left;
+}
+
+.widget {
+    background: #17181a;
+    width: var(--tab-width);
+    border-radius: 8px;
+    box-shadow: 0 0 200px rgba(122, 244, 255, 0.3);
+
+}
+
+input {
+    display: none;
+}
+
+
+
+.hero {
+    margin-block: 5rem;
+    border: solid;
+    border-color: white;
+    content: "";
+    border-top-left-radius: 0px;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    background-image: url(/1.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    width: 50%;
+
+}
+
+.hero-text {
+    position: relative;
+}
+
+
+h2 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.content {
+    position: relative;
+    overflow: hidden;
+    height: 180px;
+}
+
+.content-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    width: calc(var(--tab-width)*3);
+    transition: 0.3s;
+}
+
+.content-inner>div{
+    width: inherit;
+    padding: 20px;
+}
+
+label {
+    padding: 20px;
+    font-size: 15px;
+    width: var(--button-width);
+    opacity: .35;
+    cursor: pointer;
+}
+
+p {
+    margin: 0;
+    font-size: 15px;
+    color: white;
+}
+
+.buttons {
+    position: relative;
+    display: flex;
+    border-bottom: 1px solid #575757;
+}
+
+.underline {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 64px;
+    height: 3px;
+    z-index: 50;
+    background: var(--color-primary);
+    transition: 0.2s;
+}
+
+.tabs input:nth-child(1):checked ~ .buttons .underline {
+    translate: 0 0;
+}
+
+.tabs input:nth-child(2):checked ~ .buttons .underline {
+    translate: var(--button-width) 0;
+}
+
+.tabs input:nth-child(3):checked ~ .buttons .underline {
+    translate: calc(var(--button-width)*2) 0;
+}
+
+.tabs input:nth-child(1):checked ~ .buttons label:nth-child(1),
+.tabs input:nth-child(2):checked ~ .buttons label:nth-child(2),
+.tabs input:nth-child(3):checked ~ .buttons label:nth-child(3) {
+    opacity: 1;
+}
+
+.tabs input:nth-child(1):checked ~ .content > .content-inner {
+    translate: 0 0;
+}
+.tabs input:nth-child(2):checked ~ .content > .content-inner {
+    translate: calc(0px - var(--tab-width)) 0;
+}
+.tabs input:nth-child(3):checked ~ .content > .content-inner {
+    translate: calc(0px - var(--tab-width)*2) 0;
+}
+
+.grid-cols{
+    gap: 5em;
+}
+
